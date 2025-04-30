@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <Header active={ "Home" }/>
+      <Header/>
 
       <section className="p-6">
         <MoviesCarousel movies={movies} />
