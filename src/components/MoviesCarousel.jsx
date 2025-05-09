@@ -1,10 +1,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 
 export default function MoviesCarousel({ movies }) {
+  const navigate = useNavigate();
+
   return (
     <div className="relative p-4">
       {/* Botão PREVIOUS */}
@@ -58,8 +60,7 @@ export default function MoviesCarousel({ movies }) {
       >
         {movies.map((movie) => (
           <SwiperSlide key={movie.id}>
-            <Link to={`/Movie/${movie.id}`}></Link>
-            <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-lg">
+            <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-lg hover:cursor-pointer" onClick={() => navigate(`/movie/${movie.id}`)}>
               <img
                 src={movie.imageUrl}
                 alt={movie.title}

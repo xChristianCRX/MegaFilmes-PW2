@@ -1,9 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 export default function MovieCard({ movie }) {
+  const navigate = useNavigate();
+
   return (
     <>
       <div
         key={movie.id}
-        className="bg-gray-800 rounded-lg overflow-hidden shadow-lg"
+        className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:cursor-pointer"
+        onClick={() => navigate(`/movie/${movie.id}`)}
       >
         <img
           src={movie.imageUrl}
